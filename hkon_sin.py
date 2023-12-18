@@ -22,3 +22,10 @@ model.fit(train_images, train_labels, epochs=1)
 
 test_loss, test_acc = model.evaluate(test_images, test_labels)
 print(f'Test accuracy: {test_acc}')
+
+img_path=""
+img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
+img = cv2.resize(img, (28, 28))
+img = img / 255.0
+img = np.expand_dims(img, axis=0)
+predictions = model.predict(img)
